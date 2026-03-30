@@ -1,0 +1,22 @@
+# Environment — never commit
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Node
+node_modules/
+dist/
+.next/
+
+# Docker data
+*.db
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

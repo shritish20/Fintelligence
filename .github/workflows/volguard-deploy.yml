@@ -1,0 +1,91 @@
+name: Deploy to AWS EC2
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy Fintelligence SaaS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify shared files in sync
+        run: |
+          FAIL=0
+          BACKENDS="backend/volguard backend/mf backend/equity backend/tax"
+
+          for FILE in auth_utils.py db_utils.py; do
+            SHARED="shared/$FILE"
+            for BACKEND in $BACKENDS; do
+              DEST="$BACKEND/$FILE"
+              if [ -f "$DEST" ]; then
+                if ! diff -q "$SHARED" "$DEST" > /dev/null 2>&1; then
+                  echo "❌ DRIFT: $DEST differs from $SHARED"
+                  echo "   Run ./sync_shared.sh then recommit."
+                  FAIL=1
+                fi
+              fi
+            done
+          done
+
+          if [ $FAIL -eq 1 ]; then exit 1; fi
+          echo "✅ All shared files are in sync"
+
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          script: |
+            set -e
+            echo "=== Fintelligence Deploy: $(date) ==="
+            cd /opt/fintelligence
+
+            git pull origin main
+
+            if [ ! -f .env ]; then
+              echo "ERROR: .env missing. Copy .env.example and fill values."
+              exit 1
+            fi
+
+            # Build and restart — layer cache reused when requirements unchanged
+            docker compose build
+            docker compose up -d
+
+            echo "Waiting for postgres..."
+            for i in $(seq 1 12); do
+              if docker exec fintelligence_postgres pg_isready -U fintelligence > /dev/null 2>&1; then
+                echo "✅ Postgres healthy"
+                break
+              fi
+              sleep 5
+            done
+
+            echo "Waiting for volguard backend..."
+            for i in $(seq 1 15); do
+              if docker exec fintelligence_volguard_backend curl -sf http://localhost:8000/api/health > /dev/null 2>&1; then
+                echo "✅ Backend healthy after ${i}x checks"
+                break
+              fi
+              echo "  Check $i/15 — waiting 10s..."
+              sleep 10
+              if [ $i -eq 15 ]; then
+                echo "❌ Backend failed health check"
+                docker compose logs --tail=50 fintelligence_volguard_backend
+                exit 1
+              fi
+            done
+
+            docker image prune -f
+            echo "=== Deploy complete ==="
+
+      - name: Notify on failure
+        if: failure()
+        run: echo "Deploy failed — check GitHub Actions logs"

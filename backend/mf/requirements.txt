@@ -1,0 +1,45 @@
+# Fintelligence MF Backend
+# Python 3.11+
+
+# Web framework
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+
+# Database
+sqlalchemy==2.0.36
+
+# Data processing (engine deps)
+pandas==2.2.3
+numpy==1.26.4
+scipy==1.14.1
+python-dateutil==2.9.0
+
+# XIRR computation
+pyxirr==0.10.6
+
+# HTTP
+requests==2.32.3
+aiohttp==3.10.10
+
+# LLM (Groq primary, Claude optional)
+groq
+anthropic
+
+# News parsing
+feedparser==6.0.11
+
+# Macro data
+
+# Utilities
+python-dotenv==1.0.1
+
+# Authentication — JWT + password hashing
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# PostgreSQL driver
+psycopg2-binary==2.9.9
+
+# Redis client
+redis==5.0.8

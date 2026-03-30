@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fintelligence — Financial Intelligence for the Serious Indian Investor</title>
+<meta name="description" content="Four-layer capital intelligence for the Indian options trader — Nifty premium selling, G-Sec margin, MF SIPs, direct equity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bk:#080808;--pn:#0f0f0f;--b1:#1a1a1a;--b2:#242424;--mu:#444;--mi:#666;--tx:#d4d0c8;--wh:#f0ece0;--bl:#2563eb;--bl2:#1d4ed8;--gn:#4ade80;--yw:#fbbf24;--rd:#dc2626;--mn:'IBM Plex Mono',monospace;--sn:'Syne',sans-serif}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bk);color:var(--tx);font-family:var(--mn);font-size:13px;line-height:1.6;overflow-x:hidden}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);background-size:60px 60px}
+  body::after{content:'';position:fixed;top:-2px;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(37,99,235,.2),transparent);animation:scan 10s linear infinite;pointer-events:none;z-index:1}
+  @keyframes scan{0%{top:-2px}100%{top:100%}}
+  .w{max-width:1060px;margin:0 auto;padding:0 22px;position:relative;z-index:2}
+  nav{position:fixed;top:0;left:0;right:0;border-bottom:1px solid var(--b1);background:rgba(8,8,8,.94);backdrop-filter:blur(12px);z-index:100}
+  .ni{display:flex;align-items:center;justify-content:space-between;height:50px;max-width:1060px;margin:0 auto;padding:0 22px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .lm{width:27px;height:27px;border:1px solid var(--bl);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--bl);letter-spacing:.05em}
+  .ln{font-family:var(--sn);font-size:13px;font-weight:700;color:var(--wh);letter-spacing:.08em;text-transform:uppercase}
+  .nr{display:flex;align-items:center;gap:14px}
+  .nl{font-size:11px;color:var(--mi);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .15s}
+  .nl:hover{color:var(--tx)}
+  .bn{font-family:var(--mn);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:7px 15px;background:var(--bl);color:#fff;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:background .15s}
+  .bn:hover{background:var(--bl2)}
+  .hero{padding:130px 0 68px;border-bottom:1px solid var(--b1)}
+  .ey{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--bl);font-weight:600;margin-bottom:22px;display:flex;align-items:center;gap:10px}
+  .ey::before{content:'';display:block;width:22px;height:1px;background:var(--bl)}
+  h1{font-family:var(--sn);font-size:clamp(32px,6vw,64px);font-weight:800;color:var(--wh);line-height:1.05;letter-spacing:-.02em;margin-bottom:18px}
+  h1 span{color:var(--bl)}
+  .hs{font-size:14px;color:var(--mi);max-width:520px;line-height:1.75;margin-bottom:32px}
+  .hb{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .bp{font-family:var(--mn);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:13px 28px;background:var(--bl);color:#fff;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:background .15s}
+  .bp:hover{background:var(--bl2)}
+  .bo{font-family:var(--mn);font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:12px 28px;background:transparent;color:var(--tx);border:1px solid var(--b2);cursor:pointer;text-decoration:none;display:inline-block;transition:border-color .15s}
+  .bo:hover{border-color:var(--mi)}
+  .hn{font-size:11px;color:var(--mu);margin-top:12px}
+  .sb{display:flex;border:1px solid var(--b1);margin-top:48px;overflow:hidden}
+  .sc{flex:1;padding:11px 16px;border-right:1px solid var(--b1)}
+  .sc:last-child{border-right:none}
+  .sl{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);font-weight:600;margin-bottom:3px}
+  .sv{font-size:12px;font-weight:600;color:var(--wh)}
+  .sv.g{color:var(--gn)}.sv.b{color:#60a5fa}.sv.y{color:var(--yw)}
+  .dt{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:5px;animation:bk 2s ease-in-out infinite}
+  .dt.g{background:var(--gn);box-shadow:0 0 6px var(--gn)}
+  @keyframes bk{0%,100%{opacity:1}50%{opacity:.3}}
+  .sec{padding:68px 0;border-bottom:1px solid var(--b1)}
+  .sl2{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--mu);font-weight:600;margin-bottom:32px;display:flex;align-items:center;gap:12px}
+  .sl2::after{content:'';flex:1;height:1px;background:var(--b1);max-width:140px}
+  .layers{display:flex;flex-direction:column}
+  .lay{display:grid;grid-template-columns:42px 1fr auto;border:1px solid var(--b1);margin-bottom:-1px;transition:border-color .2s}
+  .lay:hover{border-color:var(--b2);z-index:1;position:relative}
+  .ln2{padding:18px 0;display:flex;align-items:flex-start;justify-content:center;border-right:1px solid var(--b1);font-size:9px;letter-spacing:.15em;color:var(--mu);font-weight:600;padding-top:20px}
+  .lb{padding:18px 20px}
+  .lt{font-family:var(--sn);font-size:13px;font-weight:700;color:var(--wh);margin-bottom:4px}
+  .ld{font-size:12px;color:var(--mi);line-height:1.5}
+  .lr{padding:18px 16px 18px 0;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+  .tg{font-size:10px;padding:2px 7px;border:1px solid var(--b2);color:var(--mi);white-space:nowrap}
+  .tg.g{border-color:rgba(74,222,128,.3);color:var(--gn)}.tg.b{border-color:rgba(96,165,250,.3);color:#60a5fa}.tg.y{border-color:rgba(251,191,36,.3);color:var(--yw)}
+  .fl{display:flex;align-items:center;gap:10px;padding:6px 0 6px 54px;font-size:10px;color:var(--mu);letter-spacing:.06em}
+  .fl::before{content:'↓';color:var(--b2);font-size:12px}
+  .txb{margin-top:-1px;border:1px solid rgba(202,138,4,.25);background:rgba(202,138,4,.04);padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .txl{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#ca8a04;font-weight:600;margin-bottom:3px}
+  .txd{font-size:12px;color:var(--mi)}
+  .mods{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--b1);border:1px solid var(--b1)}
+  .mod{background:var(--bk);padding:24px;position:relative;overflow:hidden}
+  .mod::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--ac,var(--b2))}
+  .mod.vg{--ac:var(--gn)}.mod.mf{--ac:#60a5fa}.mod.eq{--ac:#60a5fa}.mod.tx{--ac:var(--yw)}
+  .mb{font-size:9px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:9px;color:var(--mu)}
+  .mb.g{color:var(--gn)}.mb.b{color:#60a5fa}.mb.y{color:var(--yw)}
+  .mn2{font-family:var(--sn);font-size:16px;font-weight:800;color:var(--wh);margin-bottom:5px}
+  .ml{font-size:12px;color:var(--mi);margin-bottom:14px;line-height:1.5}
+  .mf2{list-style:none;display:flex;flex-direction:column;gap:5px}
+  .mf2 li{font-size:11px;color:var(--mu);padding-left:13px;position:relative;line-height:1.4}
+  .mf2 li::before{content:'—';position:absolute;left:0;color:var(--b2)}
+  .gates{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--b1);border:1px solid var(--b1)}
+  .gate{background:var(--bk);padding:20px}
+  .gi{font-size:15px;margin-bottom:7px}
+  .gl{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--rd);font-weight:600;margin-bottom:6px}
+  .gd{font-size:11px;color:var(--mi);line-height:1.5;margin-bottom:8px}
+  .gr{font-size:11px;color:var(--wh);font-weight:600;padding:4px 9px;background:rgba(220,38,38,.07);border-left:2px solid var(--rd)}
+  .pricing{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--b1);border:1px solid var(--b1)}
+  .pc{background:var(--bk);padding:30px}
+  .pc.ft{background:var(--pn);position:relative}
+  .pc.ft::before{content:'BEST VALUE';position:absolute;top:13px;right:13px;font-size:9px;letter-spacing:.2em;color:var(--gn);font-weight:600}
+  .pl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);font-weight:600;margin-bottom:12px}
+  .pa{font-family:var(--sn);font-size:42px;font-weight:800;color:var(--wh);line-height:1;margin-bottom:4px}
+  .pa small{font-size:17px;color:var(--mi);font-weight:400;font-family:var(--mn)}
+  .pp{font-size:12px;color:var(--mu);margin-bottom:22px}
+  .pf{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+  .pf li{font-size:12px;color:var(--tx);padding-left:17px;position:relative}
+  .pf li::before{content:'✓';position:absolute;left:0;color:var(--gn);font-size:11px}
+  .bpr{width:100%;font-family:var(--mn);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:12px;cursor:pointer;border:none;display:block;text-align:center;text-decoration:none;transition:background .15s}
+  .bpr.s{background:var(--bl);color:#fff}.bpr.s:hover{background:var(--bl2)}
+  .bpr.g2{background:transparent;color:var(--tx);border:1px solid var(--b2)}.bpr.g2:hover{border-color:var(--mi)}
+  .pn{font-size:10px;color:var(--mu);margin-top:9px;text-align:center}
+  .ov{position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(4px);z-index:200;display:none;align-items:center;justify-content:center;padding:18px}
+  .ov.open{display:flex}
+  .mo{background:var(--pn);border:1px solid var(--b2);max-width:410px;width:100%;padding:30px;position:relative;animation:mi .18s ease}
+  @keyframes mi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  .mx{position:absolute;top:13px;right:13px;background:none;border:none;color:var(--mu);cursor:pointer;font-size:16px;padding:4px;line-height:1}
+  .mx:hover{color:var(--tx)}
+  .mt{font-family:var(--sn);font-size:18px;font-weight:800;color:var(--wh);margin-bottom:3px}
+  .ms{font-size:12px;color:var(--mi);margin-bottom:22px}
+  .pt{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--b1);border:1px solid var(--b1);margin-bottom:20px}
+  .po{background:var(--bk);padding:11px 13px;cursor:pointer;border:none;text-align:left;width:100%;transition:background .1s;font-family:var(--mn)}
+  .po.ac{background:var(--pn)}
+  .pon{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);font-weight:600;margin-bottom:3px}
+  .po.ac .pon{color:var(--bl)}
+  .pop{font-family:var(--sn);font-size:19px;font-weight:800;color:var(--wh)}
+  .pop small{font-size:11px;color:var(--mi);font-weight:400;font-family:var(--mn)}
+  .pos{font-size:10px;color:var(--gn);margin-top:2px}
+  .fl2{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--mu);font-weight:600;display:block;margin-bottom:5px}
+  .fi{width:100%;padding:9px 12px;background:var(--bk);border:1px solid var(--b2);color:var(--wh);font-family:var(--mn);font-size:13px;outline:none;transition:border-color .15s;margin-bottom:13px}
+  .fi:focus{border-color:var(--bl)}
+  .fi::placeholder{color:var(--mu)}
+  .bpay{width:100%;padding:13px;background:var(--bl);color:#fff;border:none;cursor:pointer;font-family:var(--mn);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:background .15s}
+  .bpay:hover{background:var(--bl2)}.bpay:disabled{opacity:.6;cursor:not-allowed}
+  .msec{font-size:10px;color:var(--mu);margin-top:9px;text-align:center}
+  footer{border-top:1px solid var(--b1);padding:26px 0}
+  .fi2{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .fc{font-size:11px;color:var(--mu)}
+  .fls{display:flex;gap:18px}
+  .fls a{font-size:11px;color:var(--mu);text-decoration:none;transition:color .15s}
+  .fls a:hover{color:var(--tx)}
+  .disc{padding:18px 0;font-size:11px;color:var(--mu);line-height:1.6;max-width:660px;margin:0 auto;text-align:center}
+  @media(max-width:720px){.mods,.gates,.pricing{grid-template-columns:1fr}.sb{flex-direction:column}.sc{border-right:none;border-bottom:1px solid var(--b1)}.sc:last-child{border-bottom:none}h1{font-size:30px}.pt{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="ni">
+    <a href="#" class="logo"><div class="lm">FI</div><span class="ln">Fintelligence</span></a>
+    <div class="nr">
+      <a href="/app" class="nl">Login</a>
+      <a href="#pricing" class="bn" onclick="openM(event)">Subscribe →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="w">
+    <div class="ey">Financial Intelligence Operating System</div>
+    <h1>Every rupee<br>doing <span>two jobs.</span></h1>
+    <p class="hs">Four-layer capital intelligence for the Indian options trader who sells Nifty premium overnight, pledges G-Secs as margin collateral, routes income into MF SIPs, and accumulates equity for the long game.</p>
+    <div class="hb">
+      <a href="#pricing" class="bp" onclick="openM(event)">Get Access — ₹499/month</a>
+      <a href="#modules" class="bo">See what's inside</a>
+    </div>
+    <p class="hn">Self-hosted. No ads. No investment advice. All reasoning shown. You decide.</p>
+    <div class="sb">
+      <div class="sc"><div class="sl">Volguard</div><div class="sv g"><span class="dt g"></span>Live — NIFTY + VIX</div></div>
+      <div class="sc"><div class="sl">Data</div><div class="sv b">Upstox · AMFI · BSE · Screener</div></div>
+      <div class="sc"><div class="sl">AI Layer</div><div class="sv">Groq · Gemini · Claude</div></div>
+      <div class="sc"><div class="sl">Hard Gates</div><div class="sv y">Rule-based · LLM-independent</div></div>
+      <div class="sc"><div class="sl">Broker Token</div><div class="sv">Never leaves your device</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="w">
+    <div class="sl2">Capital Architecture</div>
+    <div class="layers">
+      <div class="lay"><div class="ln2">01</div><div class="lb"><div class="lt">Government Securities — Foundation</div><div class="ld">₹10,00,000 pledged as margin collateral. 90% haircut releases ₹9L margin while the G-Sec earns ~7.2% yield. Every rupee working twice.</div></div><div class="lr"><span class="tg y">~7.2% yield</span><span class="tg">90% haircut</span></div></div>
+      <div class="fl">releases ₹9,00,000 margin for overnight option selling</div>
+      <div class="lay"><div class="ln2">02</div><div class="lb"><div class="lt">Options Engine — Income</div><div class="ld">Nifty overnight premium selling. Regime-scored 0–10, AI-gated, GTT-managed. Hard gates: expiry day blocked, 1 DTE auto-exit 2PM IST, VoV ≥ 3σ all trades blocked, consecutive losses blocked.</div></div><div class="lr"><span class="tg g">Live data</span><span class="tg">VOLGUARD</span></div></div>
+      <div class="fl">40% premium → SIP · 20% withdrawn · 40% reserve</div>
+      <div class="lay"><div class="ln2">03</div><div class="lb"><div class="lt">Mutual Funds — Compounding</div><div class="ld">Funded by options premium. SIP XIRR (real cash flows), rolling returns, drawdown, portfolio overlap detection across 5 funds via ISIN-matching.</div></div><div class="lr"><span class="tg b">MF INTEL</span><span class="tg">AMFI · mfapi</span></div></div>
+      <div class="fl">bluechip equity accumulated → future margin pledge pool</div>
+      <div class="lay"><div class="ln2">04</div><div class="lb"><div class="lt">Direct Equity — Long Game</div><div class="ld">Gemini reads the BSE annual report (3-source fallback: BSE → NSE → IR page). Sector-specific DCF. Reverse DCF. ROCE spread. Probability scenarios.</div></div><div class="lr"><span class="tg b">EQUITY</span><span class="tg">BSE · Screener</span></div></div>
+    </div>
+    <div class="txb">
+      <div><div class="txl">₹ Tax Intelligence — Cross-Layer</div><div class="txd">F&O business income · MF LTCG/STCG · Equity harvest · SGB redemption · Advance tax · New vs Old regime comparison</div></div>
+      <div style="font-size:10px;color:#ca8a04;letter-spacing:.1em;white-space:nowrap">Finance Act embedded</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="modules">
+  <div class="w">
+    <div class="sl2">Five Intelligence Modules</div>
+    <div class="mods">
+      <div class="mod vg"><div class="mb g">● VOLGUARD · Options & Volatility</div><div class="mn2">The Flagship</div><div class="ml">Quantitative regime engine + AI reasoning layer + live position monitoring.</div><ul class="mf2"><li>Vol Score — VoV z-score 4-band graduated penalty, IVP 30D/90D/1Y windows</li><li>Structure Score — proximity-weighted GEX, PCR-ATM balance, 25-delta skew, max pain</li><li>Edge Score — weighted VRP: GARCH(1,1) + Parkinson + historical RV</li><li>Morning Brief — live macro synthesis, AI causality (S&P, VIX, DXY, crude, gold)</li><li>Pre-Trade Agent — PROCEED / PROCEED_WITH_CAUTION / VETO per mandate</li><li>Journal Coach — skill vs. luck decomposition via Greek attribution (Pro only)</li><li>Consecutive loss block — N losses prevents re-entry, directs to coach</li><li>Hard gates — VoV ≥ 3σ ALL BLOCKED. Expiry day BLOCKED. 1 DTE auto-exit 2PM.</li></ul></div>
+      <div class="mod mf"><div class="mb b">● MF INTEL · Mutual Fund Intelligence</div><div class="mn2">First Principles</div><div class="ml">Any AMFI-registered fund. Pure Python. No LLM for computation.</div><ul class="mf2"><li>SIP XIRR — actual monthly cash flows via pyxirr, not NAV CAGR dressed up</li><li>Rolling returns 1Y/3Y/5Y with percentile breakdowns</li><li>Sharpe, Sortino, max drawdown, crisis drawdowns (COVID, 2022 rate hike)</li><li>Upside/downside capture vs. benchmark</li><li>Portfolio overlap detection up to 5 funds — ISIN-based matching</li><li>AI synthesis — why this fund belongs or doesn't, in plain English</li></ul></div>
+      <div class="mod eq"><div class="mb b">● EQUITY · Stock Intelligence</div><div class="mn2">Annual Report to Verdict</div><div class="ml">Gemini reads the BSE filing. Sector-specific logic runs the numbers.</div><ul class="mf2"><li>Gemini 2.5 Flash reads full annual report PDF — 3-source fallback chain</li><li>10-year financials from Screener — P&L, balance sheet, cash flow</li><li>Sector DCF — paints, IT, banks, FMCG, cement, pharma, auto, NBFC</li><li>Reverse DCF — what earnings CAGR the market is pricing at CMP</li><li>ROCE spread — economic moat vs. cost of capital, quantified</li><li>Probability scenarios — implied disruption probability from market price</li></ul></div>
+      <div class="mod tx"><div class="mb y">● TAX · Taxation Intelligence</div><div class="mn2">Finance Act Embedded</div><div class="ml">Pure Python computation. Every rule cited. No LLM for numbers.</div><ul class="mf2"><li>F&O as non-speculative business income — Section 43(5) with deductions</li><li>LTCG/STCG — Budget 2024 No.2 rates (12.5%/20%) correct effective dates</li><li>Section 50AA — debt MF post-April 2023 taxed at slab regardless of holding</li><li>New vs Old regime — actual rupee saving, FY 2025-26 slabs</li><li>LTCG harvest engine — identifies ₹1.25L annual exemption opportunities</li><li>Parses Zerodha Tax P&L CSV + CAMS consolidated statement</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="w">
+    <div class="sl2">Hard Gates — Cannot Be Overridden</div>
+    <p style="font-size:13px;color:var(--mi);margin-bottom:22px;max-width:560px">Rule-based. LLM-independent. When these fire, the system stops. No clicking past them.</p>
+    <div class="gates">
+      <div class="gate"><div class="gi">⛔</div><div class="gl">VoV Crash Gate</div><div class="gd">Vol-of-vol z-score ≥ 3σ means the volatility surface itself is unstable. Short vega exposed to convexity, not just direction.</div><div class="gr">VoV ≥ 3σ → ALL TRADES BLOCKED</div></div>
+      <div class="gate"><div class="gi">📅</div><div class="gl">Expiry Day Block</div><div class="gd">No new positions on expiry day. Intraday gamma risk overwhelms theoretical edge entirely.</div><div class="gr">DTE = 0 → TRADE BLOCKED</div></div>
+      <div class="gate"><div class="gi">🕑</div><div class="gl">1 DTE Square-Off</div><div class="gd">Live positions auto-exited at 2:00 PM IST the day before expiry. An actual order, not a reminder.</div><div class="gr">1 DTE → AUTO EXIT 14:00 IST</div></div>
+      <div class="gate"><div class="gi">📉</div><div class="gl">VIX Threshold</div><div class="gd">Elevated VIX with rising momentum signals regime instability. Premium is rich but not worth capturing.</div><div class="gr">VIX &gt; 28 → VETO</div></div>
+      <div class="gate"><div class="gi">🔁</div><div class="gl">Consecutive Loss Block</div><div class="gd">N consecutive losses blocks re-entry and directs to journal coach. Revenge trading prevention, enforced.</div><div class="gr">3 losses in a row → BLOCKED</div></div>
+      <div class="gate"><div class="gi">📰</div><div class="gl">Event VETO</div><div class="gd">RBI policy, Union Budget, Fed decisions — awareness monitor scans every 30 min and auto-exits before these.</div><div class="gr">VETO event near → AUTO EXIT</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="pricing">
+  <div class="w">
+    <div class="sl2">Pricing</div>
+    <div class="pricing">
+      <div class="pc">
+        <div class="pl">Monthly</div>
+        <div class="pa">₹499 <small>/month</small></div>
+        <div class="pp">Billed monthly. Cancel anytime.</div>
+        <ul class="pf"><li>All five intelligence modules</li><li>Live Volguard with Upstox integration</li><li>MF Intel — any AMFI fund, full analysis</li><li>Equity — annual report + sector DCF</li><li>Tax engine with Zerodha + CAMS parsing</li><li>Journal Coach — skill vs. luck breakdown</li><li>Morning brief + pre-trade AI agents</li><li>8:47 AM TONE alert via Telegram</li></ul>
+        <a href="#" class="bpr g2" onclick="openM(event,'monthly')">Subscribe Monthly</a>
+        <p class="pn">₹499 = roughly one losing trade. System pays for itself by preventing one.</p>
+      </div>
+      <div class="pc ft">
+        <div class="pl">Annual</div>
+        <div class="pa">₹3,999 <small>/year</small></div>
+        <div class="pp">₹333/month effective. Save ₹2,000 vs monthly.</div>
+        <ul class="pf"><li>Everything in monthly</li><li>Priority support via email</li><li>Early access to new modules (Insurance, Macro layer)</li><li>One 30-min setup call — your capital structure</li></ul>
+        <a href="#" class="bpr s" onclick="openM(event,'yearly')">Subscribe Annually — Best Value</a>
+        <p class="pn">7-day refund if not satisfied.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="w"><div class="disc">Fintelligence provides financial intelligence, not investment advice. Every AI output ends with "Intelligence, not advice. All reasoning shown. The investor decides." Not a SEBI-registered investment advisor. Options trading involves substantial risk of loss.</div></div>
+
+<footer><div class="w"><div class="fi2"><div class="fc">© 2026 Fintelligence. Built for the serious Indian investor.</div><div class="fls"><a href="mailto:support@fintelligence.in">support@fintelligence.in</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/app">Login</a></div></div></div></footer>
+
+<div class="ov" id="ov" onclick="closeOuter(event)">
+  <div class="mo" id="mo">
+    <button class="mx" onclick="closeM()">✕</button>
+    <div class="mt">Get Fintelligence</div>
+    <div class="ms">Choose plan and pay securely via Razorpay.</div>
+    <div class="pt">
+      <button class="po ac" id="om" onclick="selP('monthly')"><div class="pon">Monthly</div><div class="pop">₹499 <small>/mo</small></div></button>
+      <button class="po" id="oy" onclick="selP('yearly')"><div class="pon">Annual</div><div class="pop">₹3,999 <small>/yr</small></div><div class="pos">Save ₹2,000</div></button>
+    </div>
+    <label class="fl2" for="em">Email address</label>
+    <input class="fi" type="email" id="em" placeholder="you@example.com" autocomplete="email">
+    <button class="bpay" id="pb" onclick="startP()"><span id="pl">Pay ₹499 — Monthly</span></button>
+    <div class="msec">🔒 Razorpay · UPI · Cards · Net banking · Wallets</div>
+  </div>
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  // ── CONFIGURE BEFORE GOING LIVE ──
+  const C={
+    key:'rzp_live_YOUR_KEY_ID',         // Razorpay Dashboard → API Keys
+    pm:'plan_YOUR_MONTHLY_PLAN_ID',     // Razorpay → Subscriptions → Plans → create ₹499/mo plan
+    py:'plan_YOUR_YEARLY_PLAN_ID',      // create ₹3999/yr plan
+    am:49900,ay:399900,                 // paise
+    app:'/app',sup:'support@fintelligence.in'
+  }
+  let plan='monthly'
+  function selP(p){plan=p;document.getElementById('om').classList.toggle('ac',p==='monthly');document.getElementById('oy').classList.toggle('ac',p==='yearly');document.getElementById('pl').textContent=p==='monthly'?'Pay ₹499 — Monthly':'Pay ₹3,999 — Annual'}
+  function openM(e,p){if(e)e.preventDefault();if(p)selP(p);document.getElementById('ov').classList.add('open');setTimeout(()=>document.getElementById('em').focus(),150)}
+  function closeM(){document.getElementById('ov').classList.remove('open')}
+  function closeOuter(e){if(e.target===document.getElementById('ov'))closeM()}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()})
+  function startP(){
+    const email=document.getElementById('em').value.trim()
+    if(!email||!email.includes('@')){const i=document.getElementById('em');i.style.borderColor='#dc2626';i.focus();setTimeout(()=>i.style.borderColor='',2000);return}
+    const btn=document.getElementById('pb');btn.disabled=true;document.getElementById('pl').textContent='Opening Razorpay...'
+    const iy=plan==='yearly'
+    const opts={key:C.key,amount:iy?C.ay:C.am,currency:'INR',name:'Fintelligence',description:iy?'Annual Subscription':'Monthly Subscription',prefill:{email},notes:{email,plan},theme:{color:'#2563eb'},
+      handler:function(r){document.getElementById('mo').innerHTML=`<div style="text-align:center;padding:14px 0"><div style="font-size:26px;margin-bottom:10px">✓</div><div style="font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:#f0ece0;margin-bottom:5px">Payment successful</div><div style="font-size:12px;color:#666;margin-bottom:18px;line-height:1.6">Account activating. Check <strong style="color:#d4d0c8">${email}</strong> for login credentials within 2 minutes.</div><a href="${C.app}" style="display:inline-block;padding:10px 22px;background:#2563eb;color:#fff;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Open Fintelligence →</a><div style="font-size:10px;color:#444;margin-top:10px">${r.razorpay_payment_id}</div></div>`},
+      modal:{ondismiss:()=>{btn.disabled=false;document.getElementById('pl').textContent=iy?'Pay ₹3,999 — Annual':'Pay ₹499 — Monthly'}}}
+    try{const rzp=new Razorpay(opts);rzp.on('payment.failed',resp=>{btn.disabled=false;document.getElementById('pl').textContent=iy?'Pay ₹3,999 — Annual':'Pay ₹499 — Monthly';alert('Payment failed: '+resp.error.description+'\n\nContact: '+C.sup)});rzp.open()}
+    catch(e){btn.disabled=false;document.getElementById('pl').textContent=iy?'Pay ₹3,999 — Annual':'Pay ₹499 — Monthly';alert('Could not load payment gateway. Contact: '+C.sup)}
+  }
+</script>
+</body>
+</html>
